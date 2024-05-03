@@ -17,9 +17,13 @@ export const counterslice = createSlice({
         {
             state.value-=1;
             state.username = "jhn ";
+        },
+        incrementbyValue:(state,action)=>
+        {
+            state.value+= action.payload;
         }
     }
 
 })
-export const {increment,decrement} = counterslice.actions;
+export const {increment,decrement,incrementbyValue} = counterslice.actions;
 export default counterslice.reducer;

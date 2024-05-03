@@ -1,5 +1,5 @@
 import React from 'react'
-import { increment,decrement } from '../slices/CounterSlice'
+import { increment,decrement,incrementbyValue } from '../slices/CounterSlice'
 import { useSelector, useDispatch } from 'react-redux'
 export const Countereg = () => {
     let dispatch = useDispatch("");
@@ -9,8 +9,10 @@ export const Countereg = () => {
     <div>
         <h3>{name}</h3>
         <p>{n} </p>
-        <input type="button" value="+" onClick={()=>dispatch(increment())}/>
-        <input type= "button" value="-" onClick={()=>dispatch(decrement())}/>
+
+        {n<5?<input type="button" value="+" onClick={()=>dispatch(increment())}/>:" "}
+        {n>0? <input type= "button" value="-" onClick={()=>dispatch(decrement())}/>:" "}
+       <input type="button" value="increase by 10" onClick={()=>dispatch(incrementbyValue(10))}/>
     </div>
   )
 }

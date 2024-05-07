@@ -5,7 +5,7 @@ import { insert } from '../slices/UserSlice'
 
 export default function UserComponent() {
     let emailref = useRef("");
-    let pwdref = userRef("");
+    let pwdref = useRef("");
     let dispatch = useDispatch();
     const InsertUser=()=>
     {

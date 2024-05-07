@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import userService from "../services/userService";
-const initialstate = {
+const initialState = {
     uname:'',
     pwd:'',
 };
@@ -10,7 +10,8 @@ const UserSlice = createSlice({
     reducers:{
         insert:(state,action)=>
         {
-            userService.insertUser(action.payload);
+           let x =  userService.insertUser(action.payload);
+           console.log(x);
         }
     }
 })

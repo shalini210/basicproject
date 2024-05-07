@@ -16,6 +16,7 @@ state.balance+= action.payload;
         Withdraw:(state,action)=>
         {
             state.balance -= action.payload;
+            
         }
     }
 })

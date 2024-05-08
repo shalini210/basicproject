@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRef } from 'react'
 import { useDispatch } from 'react-redux';
-import { insert } from '../slices/UserSlice'
+import { insert,insertUser } from '../slices/UserSlice'
 
 export default function UserComponent() {
     let emailref = useRef("");
@@ -10,7 +10,9 @@ export default function UserComponent() {
     const InsertUser=()=>
     {
         const data = {uname: emailref.current.value,pwd:pwdref.current.value};
-        dispatch(insert(data));
+        // dispatch(insert(data));
+        console.log("on btn click")
+        dispatch(insertUser(data))
     }
 
   return (

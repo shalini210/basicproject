@@ -22,7 +22,10 @@ export const updateUser =createAsyncThunk("/update", async(data)=>
 })
 export const deleteUser = createAsyncThunk("/delete",async(data)=>
 {
+    console.log("inside delete thunk")
+    console.log(data)
     const response = await userService.deleteUser(data);
+    return response.data;
 });
 
 const UserSlice = createSlice({
@@ -38,11 +41,29 @@ const UserSlice = createSlice({
 
     extraReducers:(builder)=>
     {
-        builder.addCase("/insert",(state,action)=>
+        builder.addCase(insertUser.fulfilled,(state,action)=>
         {
             console.log("user Inserted");
+            // console.log(action.payload);
+            return action.payload;
+        });
+        builder.addCase(insertUser.rejected,(state,action)=>
+        {
+            console.log("error in inserting user");
+            console.log(action.payload)
+        });
+        builder.addCase(updateUser.fulfilled,(state,action)=>
+        {
             console.log(action.payload);
         });
+        builder.addCase(updateUser.rejected,(state,action)=>
+        {
+            console.log(action.payload)
+        });
+        builder.addCase(deleteUser.fulfilled,(state,action)=>
+        {
+            console.log(action.payload)
+        })
     }
 })
 export const {insert} = UserSlice.actions;

@@ -17,9 +17,9 @@ class UserDataService
     {
         return ourhttp.put("user/",data);
      }
-     deleteUser(data)
+     deleteUser(data1)
      {
-        return ourhttp.delete("user/",data)
+        return ourhttp.delete("user/",{ data: data1 })
      }    
 }
 export default new UserDataService();

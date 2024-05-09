@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRef } from 'react'
 import { useDispatch } from 'react-redux';
-import { insert,insertUser } from '../slices/UserSlice'
+import { deleteUser, getall, insert,insertUser, updateUser } from '../slices/UserSlice'
 
 export default function UserComponent() {
     let emailref = useRef("");
@@ -25,6 +25,9 @@ export default function UserComponent() {
         Enter password : <input type="password" ref={pwdref}/>
     </p>
     <input type="button" value="save" onClick={()=>InsertUser()}/>
+    <input type="button" value="Delete" onClick={()=>dispatch(deleteUser({uname: emailref.current.value}))}/>
+    <input type="button" value="update" onClick={()=>dispatch(updateUser({uname: emailref.current.value,pwd:pwdref.current.value}))}/>
+    <input type="button" value="select" onClick={()=>dispatch(getall())}/>
     </>
   )
 }
